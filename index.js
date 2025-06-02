@@ -86,7 +86,10 @@ async function dep() {
       throw new Error('Deployer binary not found. Please specify deployer-binary or deployer-version.')
     }
     version = version.replace(/^v/, '')
-    let manifest = JSON.parse((await $`curl -L https://deployer.org/manifest.json`).stdout)
+
+    const manifestResponse = await fetch('https://deployer.org/manifest.json')
+    const manifest = await manifestResponse.json()
+
     let url
     for (let asset of manifest) {
       if (asset.version === version) {
@@ -124,12 +127,12 @@ async function dep() {
   } catch (e) {
     console.error('Invalid JSON in options')
   }
-  
+
   let phpBin = 'php'
   let phpBinArg = core.getInput('php-binary');
-    if (phpBinArg !== '') {
-        phpBin = phpBinArg
-    }
+  if (phpBinArg !== '') {
+    phpBin = phpBinArg
+  }
 
   try {
     await $`${phpBin} ${dep} ${cmd} ${recipe} --no-interaction ${ansi} ${verbosity} ${options}`
