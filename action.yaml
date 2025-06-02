@@ -1,68 +1,60 @@
-name: 'deployphp/action'
+name: 'skmedix/deployer-action'
 
 description: 'Deploy with Deployer'
 
-inputs:
+branding:
+  color: blue
+  icon: send
 
+
+inputs:
   dep:
     required: true
     description: The command.
-    
   php-binary:
     required: false
     default: ''
     description: Path to PHP binary.
-
   sub-directory:
     required: false
     default: ''
     description: Specifies a sub directory within the repository to deploy.
-
   options:
     required: false
     default: ''
     description: List of options for the Deployer.
-
   private-key:
     required: false
     default: ''
     description: The private key for connecting to remote hosts.
-
   known-hosts:
     required: false
     default: ''
     description: Content of `~/.ssh/known_hosts` file.
-
   ssh-config:
     required: false
     default: ''
     description: The SSH configuration
-
   skip-ssh-setup:
     required: false
     default: 'false'
     description: Whether the SSH setup should be skipped.
-
   deployer-version:
     required: false
     default: ''
     description: Deployer version to download from deployer.org.
-
   deployer-binary:
     required: false
     default: ''
     description: Path to local Deployer binary.
-
   recipe:
     required: false
     default: ''
     description: Recipe file path.
-
   ansi:
     required: false
     default: 'true'
     description: Whether to enable ANSI output.
-
   verbosity:
     required: false
     default: '-v'
@@ -71,7 +63,3 @@ inputs:
 runs:
   using: 'node20'
   main: 'index.js'
-
-branding:
-  color: blue
-  icon: send
