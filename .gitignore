@@ -3,6 +3,7 @@ node_modules/
 
 # Build output (but we want to commit dist/ for GitHub Actions)
 # dist/
+dist/package.json
 
 # Logs
 npm-debug.log*

@@ -1,5 +1,6 @@
 {
   "private": true,
+  "type": "module",
   "scripts": {
     "build": "ncc build -m -o dist --license licenses.txt"
   },
