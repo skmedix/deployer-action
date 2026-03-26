@@ -61,5 +61,5 @@ inputs:
     description: Verbosity level Can be -v, -vv or -vvv.
 
 runs:
-  using: 'node20'
+  using: 'node24'
   main: 'dist/index.js'
